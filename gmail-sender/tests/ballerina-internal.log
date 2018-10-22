@@ -1,9 +1,0 @@
-[2018-10-22 23:14:55,974] ERROR {org.ballerinalang.launcher.Main} - configuration file not found: ./ballerina.conf 
-java.lang.RuntimeException: configuration file not found: ./ballerina.conf
-	at org.ballerinalang.config.ConfigProcessor.getConfigFile(ConfigProcessor.java:141)
-	at org.ballerinalang.config.ConfigProcessor.processConfiguration(ConfigProcessor.java:61)
-	at org.ballerinalang.config.ConfigRegistry.initRegistry(ConfigRegistry.java:70)
-	at org.ballerinalang.testerina.core.TestCmd.execute(TestCmd.java:135)
-	at java.util.Optional.ifPresent(Unknown Source)
-	at org.ballerinalang.launcher.Main.main(Main.java:65)
- 
