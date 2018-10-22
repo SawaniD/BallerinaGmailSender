@@ -32,31 +32,10 @@ endpoint gmail:Client gmailClient {
     }
 };
 
-# Main function to run the integration system.
-# + args - Runtime parameters
-public function main(string... args) {
-    log:printDebug("Gmail Integration -> Sending notification to customers");
-    boolean result = sendNotification();
-    if (result) {
-        log:printDebug("Gmail Integration -> Sending notification to customers successfully completed!");
-    } else {
-        log:printDebug("Gmail Integration -> Sending notification to customers failed!");
-    }
+function sendNotification(EmailData emailData) returns boolean {
+    return sendMail(emailData.customerEmail, emailData.subject, getCustomEmailTemplate(emailData.cutomerName));
 }
 
-# Send notification to the customers.
-# + return - State of whether the process of sending notification is success or not
-function sendNotification() returns boolean {
-    string CutomerName = "Sawani Dissanayake";
-    string customerEmail = "esawani@gmail.com";
-    string subject = "Thank You for Reservation";
-    return sendMail(customerEmail, subject, getCustomEmailTemplate(CutomerName));
-}
-
-
-# Get the customized email template.
-# + customerName - Name of the customer.
-# + return - String customized email message.
 function getCustomEmailTemplate(string customerName) returns (string) {
     string emailTemplate = "<h2> Hi " + customerName + " </h2>";
     emailTemplate = emailTemplate + "<h3> Thank you for your reservation "  + " ! </h3>";
@@ -65,11 +44,6 @@ function getCustomEmailTemplate(string customerName) returns (string) {
     return emailTemplate;
 }
 
-# Send email with the given message body to the specified recipient for dowloading the specified product.
-# + customerEmail - Recipient's email address.
-# + subject - Subject of the email.
-# + messageBody - Email message body to send.
-# + return - The status of sending email success or not
 function sendMail(string customerEmail, string subject, string messageBody) returns boolean {
     //Create html message
     gmail:MessageRequest messageRequest;
