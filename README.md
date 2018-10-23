@@ -1,9 +1,9 @@
 # BallerinaGmailSender
 
-- Go through the following steps to obtain credetials and tokens for both Google Sheets and Gmail APIs.
+- Go through the following steps to obtain credetials and tokens for Gmail APIs.
     1. Visit [Google API Console](https://console.developers.google.com), click **Create Project**, and follow the wizard 
     to create a new project.
-    2. Enable both Gmail and Google Sheets APIs for the project.
+    2. Enable both Gmail APIs for the project.
     3. Go to **Credentials -> OAuth consent screen**, enter a product name to be shown to users, and click **Save**.
     4. On the **Credentials** tab, click **Create credentials** and select **OAuth client ID**. 
     5. Select an application type, enter a name for the application, and specify a redirect URI 
@@ -17,4 +17,6 @@
     token and access token.         
 
   You must configure the `ballerina.conf` configuration file with the above obtained tokens, credentials and 
-  other important parameters as follows.
+  other important parameters.
+  
+  
